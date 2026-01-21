@@ -120,7 +120,61 @@ Replace `${phonenumber}` with any number to skip OTP.
 Replace all Application (Client) IDs with real values for:
 - IdentityExperienceFramework
 - ProxyIdentityExperienceFramework
+#### 1. Token Issuer Metadata
 
+Locate the Metadata block:
+
+```xml
+<Metadata>
+  <Item Key="client_id">
+    ${ProxyIdentityExperienceFramework Application (client) ID}
+  </Item>
+  <Item Key="IdTokenAudience">
+    ${IdentityExperienceFramework Application (client) ID}
+  </Item>
+</Metadata>
+```
+
+Replace with real Application IDs:
+
+```xml
+<Metadata>
+  <Item Key="client_id">
+    11111111-1111-1111-1111-111111111111
+  </Item>
+  <Item Key="IdTokenAudience">
+    22222222-2222-2222-2222-222222222222
+  </Item>
+</Metadata>
+```
+
+---
+
+#### 2. InputClaims Section
+
+Locate:
+
+```xml
+<InputClaim ClaimTypeReferenceId="client_id"
+            DefaultValue="${ProxyIdentityExperienceFramework Application (client) ID}" />
+
+<InputClaim ClaimTypeReferenceId="resource_id"
+            PartnerClaimType="resource"
+            DefaultValue="${IdentityExperienceFramework Application (client) ID}" />
+```
+
+Replace with actual values:
+
+```xml
+<InputClaim ClaimTypeReferenceId="client_id"
+            DefaultValue="11111111-1111-1111-1111-111111111111" />
+
+<InputClaim ClaimTypeReferenceId="resource_id"
+            PartnerClaimType="resource"
+            DefaultValue="22222222-2222-2222-2222-222222222222" />
+```
+
+---
 ---
 
 ## Step 4: Upload Order

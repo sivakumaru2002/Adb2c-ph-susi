@@ -5,6 +5,7 @@
 - Initial domain name (example: `xxxxx.onmicrosoft.com`)
 - Tenant ID
 - Access to Azure Portal
+- Git Bash (Windows) or Terminal (macOS/Linux)
 
 ---
 
@@ -91,15 +92,47 @@ Upload location in Azure:
 Azure AD B2C → Identity Experience Framework → Custom Policies
 ```
 
+### Automated Setup (Recommended)
+
+#### Prerequisites
+- Git Bash (Windows) or Terminal (macOS/Linux)
+- All XML files and script in same folder
+
+#### Configure Script
+Edit `setup_b2c_policies.sh`:
+
+```bash
+INITIAL_DOMAIN="xxxxx"
+TENANT_ID="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+LOGIN_PAGE_URL="https://<storageaccount>.blob.core.windows.net/loginpage/selfAsserted.html"
+PHONE_NUMBER="+911234567890"
+PROXY_IDEF_CLIENT_ID="<Proxy App ID>"
+IDEF_CLIENT_ID="<Identity App ID>"
+B2C_EXT_APP_OBJECT_ID="<b2c-extensions-app Object ID>"
+B2C_EXT_APP_CLIENT_ID="<b2c-extensions-app Client ID>"
+```
+
+#### Run Script
+```bash
+chmod +x setup_b2c_policies.sh
+./setup_b2c_policies.sh
+```
+
+Output folder:
+```
+xxxxx-b2c-policies/
+```
 ---
 
-### File Renaming
+### manual Setup (Recommended)
+
+#### File Renaming
 
 Replace `initialdomainname.onmicrosoft.com` with your **actual initial domain name** in **all files**.
 
 ---
 
-### Placeholder Replacement
+#### Placeholder Replacement
 
 Replace in all files:
 
@@ -108,19 +141,19 @@ Replace in all files:
 
 ---
 
-### PH_SUSI Configuration
+#### PH_SUSI Configuration
 file name (initaldomainname.onmicrosoft.com-B2C_1A_PH_SUSI.xml)
 Replace the login page URL with your hosted `selfAsserted.html`.
 Replace `${phonenumber}` with any number to skip OTP.
 
 ---
 
-### TRUSTFRAMEWORKEXTENSIONS Configuration
+#### TRUSTFRAMEWORKEXTENSIONS Configuration
 file name (initaldomainname.onmicrosoft.com-B2C_1A_TRUSTFRAMEWORKEXTENSIONS.xml)
 Replace all Application (Client) IDs with real values for:
 - IdentityExperienceFramework
 - ProxyIdentityExperienceFramework
-#### 1. Token Issuer Metadata
+##### 1. Token Issuer Metadata
 
 Locate the Metadata block:
 
@@ -150,7 +183,7 @@ Replace with real Application IDs example:
 
 ---
 
-#### 2. InputClaims Section
+##### 2. InputClaims Section
 
 Locate:
 

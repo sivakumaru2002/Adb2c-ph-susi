@@ -109,14 +109,14 @@ Replace in all files:
 ---
 
 ### PH_SUSI Configuration
-
+file name (initaldomainname.onmicrosoft.com-B2C_1A_PH_SUSI.xml)
 Replace the login page URL with your hosted `selfAsserted.html`.
 Replace `${phonenumber}` with any number to skip OTP.
 
 ---
 
 ### TRUSTFRAMEWORKEXTENSIONS Configuration
-
+file name (initaldomainname.onmicrosoft.com-B2C_1A_TRUSTFRAMEWORKEXTENSIONS.xml)
 Replace all Application (Client) IDs with real values for:
 - IdentityExperienceFramework
 - ProxyIdentityExperienceFramework

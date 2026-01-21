@@ -1,10 +1,10 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="<initaldomainname>.onmicrosoft.com" PolicyId="B2C_1A_PH_SUSI" PublicPolicyUri="http://<initaldomainname>.onmicrosoft.com/B2C_1A_PH_SUSI" TenantObjectId="<tenant_id>">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="${initaldomainname}.onmicrosoft.com" PolicyId="B2C_1A_PH_SUSI" PublicPolicyUri="http://${initaldomainname}.onmicrosoft.com/B2C_1A_PH_SUSI" TenantObjectId="${tenant_id}">
   <!-- for AppInsights, copy these to above
     DeploymentMode="Development" 
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" 
   -->
   <BasePolicy>
-    <TenantId><initaldomainname>.onmicrosoft.com</TenantId>
+    <TenantId>${initaldomainname}.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A_PH_TrustFrameworkLocalization</PolicyId>
   </BasePolicy>
   <BuildingBlocks>
@@ -210,7 +210,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.signuporsignin">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
         <Metadata>
@@ -218,7 +218,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
         <Metadata>
@@ -226,7 +226,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -234,7 +234,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.profileupdate">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -242,7 +242,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -250,7 +250,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.socialccountsignup">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -258,7 +258,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignin">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -266,7 +266,7 @@
         </Metadata>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <LoadUri>https://<initaldomainname>.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
+        <LoadUri>https://${initaldomainname}.blob.core.windows.net/loginpage/selfAsserted.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
         <Metadata>
@@ -470,7 +470,7 @@
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>signInNames.phoneNumber</Value>
-              <Value><phonenumber></Value>
+              <Value>${phonenumber}</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

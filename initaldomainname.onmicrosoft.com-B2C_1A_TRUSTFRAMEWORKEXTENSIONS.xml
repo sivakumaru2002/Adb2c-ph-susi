@@ -1,6 +1,6 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="<initaldomainname>.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkExtensions" PublicPolicyUri="http://<initaldomainname>.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="<tenant_id>">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="${initaldomainname}.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkExtensions" PublicPolicyUri="http://${initaldomainname}.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="${tenant_id}">
   <BasePolicy>
-    <TenantId><initaldomainname>.onmicrosoft.com</TenantId>
+    <TenantId>${initaldomainname}.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
   </BasePolicy>
   <BuildingBlocks>
@@ -64,12 +64,12 @@
       <TechnicalProfiles>
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
-            <Item Key="client_id"><ProxyIdentityExperienceFramework Application (client) ID></Item>
-            <Item Key="IdTokenAudience"><IdentityExperienceFramework Application (client) ID></Item>
+            <Item Key="client_id">${ProxyIdentityExperienceFramework Application (client) ID}</Item>
+            <Item Key="IdTokenAudience">${IdentityExperienceFramework Application (client) ID}</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="<ProxyIdentityExperienceFramework Application (client) ID>" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="<IdentityExperienceFramework Application (client) ID>" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="${ProxyIdentityExperienceFramework Application (client) ID}" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="${IdentityExperienceFramework Application (client) ID}" />
           </InputClaims>
         </TechnicalProfile>
       </TechnicalProfiles>

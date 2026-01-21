@@ -135,7 +135,7 @@ Locate the Metadata block:
 </Metadata>
 ```
 
-Replace with real Application IDs:
+Replace with real Application IDs example:
 
 ```xml
 <Metadata>
@@ -163,7 +163,7 @@ Locate:
             DefaultValue="${IdentityExperienceFramework Application (client) ID}" />
 ```
 
-Replace with actual values:
+Replace with actual values example:
 
 ```xml
 <InputClaim ClaimTypeReferenceId="client_id"
